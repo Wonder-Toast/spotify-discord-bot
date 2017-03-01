@@ -14,12 +14,12 @@
         message.author.sendMessage(help);
     }
 
-    if (message.content.startsWith(prefix + "addsong")) {
-            let url = message.content.replace(prefix + "addsong ", "");
-                if (!url) return message.reply("no_entry_sign: Please specify a song for me to add to your playlist!")
-            yt.getInfo(url, (err) => {
-       if (err) return message.reply(":no_entry_sign: It seems like the song you tried to submit is invalid. You can **only** add YouTube video links!\n\n" + err);
-  });
+     if ( message.content.startsWith( prefix + "addsong" ) ) {
+   let url = message.content.replace( prefix + "addsong ", "" );
+   if ( !url ) return message.reply( "no_entry_sign: Please specify a song for me to add to your playlist!" )
+   yt.getInfo( url, ( err ) => {
+     if ( err ) return message.reply( ":no_entry_sign: It seems like the song you tried to submit is invalid. You can **only** add YouTube video links!\n\n" + err );
+   } );
         let data = JSON.parse(fs.readFileSync('./Toasty/spotify.json'));
           if (!data[message.author.id]) data[message.author.id] = {
             songs: []
