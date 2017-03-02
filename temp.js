@@ -3,12 +3,12 @@
             var help = [
                 "Prefix is `s.`",
                 "**help** = Sends this message.",
-                "**play** = Starts playing your playlist in the voice channel you are in.",
-                "**skip** = Skips the currently playing song.",
-                "**stop** = Stops playing.",
-                "**force <song>** = Plays the specified song. *(YouTube videos only)*",
-                "**addsong <song>** = Adds the specified song to your custom playlist. *(YouTube videos only)*",
-                "**songs** = List's all of your songs.",
+                 "**play** = Starts playing your playlist in the voice channel you are in.",
+                      "**skip** = Skips the currently playing song.",
+                      "**stop** = Stops playing.",
+                      "**force <song>** = Plays the specified song. *(YouTube videos only)*",
+                       "**addsong <song>** = Adds the specified song to your custom playlist. *(YouTube videos only)*",
+                 "**songs** = List's all of your songs.",
                 "**invite** = Sends the OAuth link to invite me to your server.",
             ];
         message.author.sendMessage(help);
