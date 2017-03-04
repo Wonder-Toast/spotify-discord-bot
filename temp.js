@@ -46,3 +46,14 @@
             .addField(`Your songs:`, `**${songList}**`)
         message.channel.sendEmbed(embed);
     }
+
+  if (message.content === prefix + "restart") {
+        if (!message.author.id === '193378071141810176') return;
+        if (!message.author.id === '138431969418543104') return;
+        //Gotcha Toasty ;)
+        message.channel.sendMessage("```css\nRestarting...```");
+        console.log("Restarting...");
+        setTimeout(function() {
+            console.log(process.exit(0));
+        }, 400);
+    }
