@@ -5,7 +5,7 @@ const mybot = new Discord.Client();
 const now = require('performance-now');
 const yt = require('ytdl-core');
 const prefix = 's.';
-const token = TOKEN;
+const token = 'TOKEN';
 const oauth = 'https://discordapp.com/oauth2/authorize?client_id=224495611741863936&scope=bot&permissions=37088320';
 
 mybot.on("ready", function() {
