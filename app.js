@@ -47,7 +47,7 @@ const commands = {
 				play(userData[msg.author.id].songs.shift());
 			});
 			dispatcher.on('error', (err) => {
-				return msg.channel.sendMessage('error: ' + err).then(() => {
+				return msg.channel.sendMessage(':no_entry_sign: Error: ' + err).then(() => {
 					collector.stop();
 					play(userData[msg.author.id].songs[Math.floor(Math.random() * userData[msg.author.id].songs.length)]);
 				});
@@ -87,7 +87,7 @@ const commands = {
 };
 
 client.on('ready', () => {
-	console.log('Music module ready.');
+	console.log('Spotify bot online and ready.');
 });
 
 client.on('message', msg => {
