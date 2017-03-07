@@ -66,7 +66,7 @@ const commands = {
 	},
 	'add': (msg) => {
 		let url = msg.content.split(' ')[1];
-		if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a url, or youtube video id after ${tokens.prefix}add`).catch(e => {
+		if (!url == '' || url === undefined) return msg.channel.sendMessage(`You must add a url, or youtube video id after ${tokens.prefix}add`).catch(e => {
 			msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${e}`);
 		});
 		yt.getInfo(url, (err, info) => {
@@ -83,7 +83,7 @@ const commands = {
 		});
 	},
 	'songs': (msg) => {
-		if (userData[msg.author.id] === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
+		if (!userData[msg.author.id] === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
 		let tosend = [];
 		userData[msg.author.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title}`);});
 		msg.channel.sendMessage(`__**${msg.author.username}'s Music Playlist:**__ Currently **${tosend.length}** songs in it ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
