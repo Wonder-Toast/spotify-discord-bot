@@ -28,10 +28,10 @@ const commands = {
 			collector.on('message', m => {
 				if (m.content.startsWith(tokens.prefix + 'pause')) {
 					msg.channel.sendMessage(':pause_button: Paused.').then(() => {dispatcher.pause();});
-				} else if (m.content.startsWith(tokens.prefix + 'resume')){
-					msg.channel.sendMessage(':play_pause: Resumed.').then(() => {dispatcher.resume();});
-				} else if (m.content.startsWith(tokens.prefix + 'skip')){
-					msg.channel.sendMessage(':arrow_forward: Skipped.').then(() => {dispatcher.end();});
+					} else if (m.content.startsWith(tokens.prefix + 'resume')){
+						msg.channel.sendMessage(':play_pause: Resumed.').then(() => {dispatcher.resume();});
+					} else if (m.content.startsWith(tokens.prefix + 'skip')){
+						msg.channel.sendMessage(':arrow_forward: Skipped.').then(() => {dispatcher.end();});
 				} else if (m.content.startsWith(tokens.prefix + 'volume+')){
 					if (Math.round(dispatcher.volume*50) >= 100) return msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
