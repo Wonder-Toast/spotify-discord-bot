@@ -31,6 +31,9 @@ const commands = {
    }) /*, { passes : tokens.passes }*/ );
    let collector = msg.channel.createCollector(m => m);
    collector.on('message', m => {
+       if (!m.content.startsWith(`${tokens.prefix}`)) {
+		   msg.channel.sendMessage(" ");
+	   }
     if (m.content.startsWith(tokens.prefix + 'pause')) {
      msg.channel.sendMessage(':pause_button: Paused.').then(() => {
       dispatcher.pause();
