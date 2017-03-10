@@ -32,10 +32,10 @@ const commands = {
    let collector = msg.channel.createCollector(m => m);
    collector.on('message', m => {
 if (!m.content.startsWith(`${tokens.prefix}`)) {
-		   msg.channel.sendMessage(" ");
+  msg.channel.sendMessage(" ");
 	   }
  if (m.author.bot) {
-		msg.channel.sendMessage(" ");
+msg.channel.sendMessage(" ");
 	}
 if(m.author === client.user) {
 		msg.channel.sendMessage(" ");
