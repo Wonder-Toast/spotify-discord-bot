@@ -34,6 +34,12 @@ const commands = {
        if (!m.content.startsWith(`${tokens.prefix}`)) {
 		   msg.channel.sendMessage(" ");
 	   }
+	 if (m.author.bot) {
+		msg.channel.sendMessage(" ");
+	}
+	if(m.author === client.user) {
+		msg.channel.sendMessage(" ");
+	}
     if (m.content.startsWith(tokens.prefix + 'pause')) {
      msg.channel.sendMessage(':pause_button: Paused.').then(() => {
       dispatcher.pause();
