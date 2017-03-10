@@ -75,7 +75,7 @@ yt.getInfo(url, (err, info) => {
             };
             userData[msg.author.id].songs.push({url: url, title: info.title});
             let updateValue = JSON.stringify(userData, null, 2);
-            fs.writeFileSync('./Toasty/spotify/spotify.json', updateValue);
+            fs.writeFileSync('./spotify.json', updateValue);
             msg.channel.sendMessage(`:white_check_mark: Added **${info.title}** to your playlist.`);
         });
     },
