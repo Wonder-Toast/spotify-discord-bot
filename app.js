@@ -4,7 +4,7 @@ const fs = require('fs');
 const now = require('performance-now');
 const tokens = require('./tokens.json');
 const client = new Discord.Client();
-const userData = JSON.parse(fs.readFileSync('./Toasty/spotify/spotify.json'));
+const userData = JSON.parse(fs.readFileSync('./spotify.json'));
 const oauth = 'https://discordapp.com/oauth2/authorize?client_id=224495611741863936&scope=bot&permissions=37088320';
 
 let queue = {};
@@ -13,9 +13,9 @@ const commands = {
 	'play': (msg) => {
 		if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
 		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
-		//if (queue[msg.guild.id].playing) return msg.channel.sendMessage("I'm currently already playing.");
+		
 		let dispatcher;
-		//queue[msg.guild.id].playing = true;
+		
 
 		(function play(song) {
 			if (song === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`").then(() => {
