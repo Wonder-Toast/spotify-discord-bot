@@ -10,7 +10,7 @@ const oauth = 'https://discordapp.com/oauth2/authorize?client_id=224495611741863
 let queue = {};
 
 const commands = {
-	'play': (msg) => {
+		'play': (msg) => {
 		if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
 		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 		//if (queue[msg.guild.id].playing) return msg.channel.sendMessage("I'm currently already playing.");
