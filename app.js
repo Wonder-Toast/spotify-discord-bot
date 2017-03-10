@@ -10,7 +10,7 @@ const oauth = 'https://discordapp.com/oauth2/authorize?client_id=224495611741863
 let queue = {};
 
 const commands = {
-		'play': (msg) => {
+	'play': (msg) => {
 		if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
 		if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 		//if (queue[msg.guild.id].playing) return msg.channel.sendMessage("I'm currently already playing.");
@@ -28,10 +28,10 @@ const commands = {
 			collector.on('message', m => {
 				if (m.content.startsWith(tokens.prefix + 'pause')) {
 					msg.channel.sendMessage(':pause_button: Paused.').then(() => {dispatcher.pause();});
-					} else if (m.content.startsWith(tokens.prefix + 'resume')){
-						msg.channel.sendMessage(':play_pause: Resumed.').then(() => {dispatcher.resume();});
-					} else if (m.content.startsWith(tokens.prefix + 'skip')){
-						msg.channel.sendMessage(':arrow_forward: Skipped.').then(() => {dispatcher.end();});
+				} else if (m.content.startsWith(tokens.prefix + 'resume')){
+					msg.channel.sendMessage(':play_pause: Resumed.').then(() => {dispatcher.resume();});
+				} else if (m.content.startsWith(tokens.prefix + 'skip')){
+					msg.channel.sendMessage(':arrow_forward: Skipped.').then(() => {dispatcher.end();});
 				} else if (m.content.startsWith(tokens.prefix + 'volume+')){
 					if (Math.round(dispatcher.volume*50) >= 100) return msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
 					dispatcher.setVolume(Math.min((dispatcher.volume*50 + (2*(m.content.split('+').length-1)))/50,2));
@@ -65,39 +65,25 @@ const commands = {
 		msg.channel.sendMessage(":white_check_mark: I've successfully joined your voice channel.");
 	},
 	'add': (msg) => {
-		let url = msg.content.split(' ')[1];
-		if (!url == '' || url === undefined) return msg.channel.sendMessage(`You must add a url, or youtube video id after ${tokens.prefix}add`).catch(e => {
-			msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${e}`);
-		});
-		yt.getInfo(url, (err, info) => {
-			if(err) return msg.channel.sendMessage(':no_entry_sign: Invalid YouTube link: ' + err).catch(e => {
-				msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${e}`);
-			});
-			if (!userData[msg.author.id]) userData[msg.author.id] = {
-					songs: []
-			};
-			userData[msg.author.id].songs.push({url: url, title: info.title});
-			let updateValue = JSON.stringify(userData, null, 2);
-			fs.writeFileSync('./Toasty/spotify/spotify.json', updateValue);
-			msg.channel.sendMessage(`:white_check_mark: Added **${info.title}** to your playlist.`);
-		});
-	},
+let url = msg.content.split(' ')[1];
+        if (url.includes("https://youtube.com/") || url.includes("https://www.youtube.com/") || url.includes("http://youtube.com/") || url.includes("http://www.youtube.com/") || url.includes("https://youtu.be/") || url.includes("https://www.youtu.be/") || url.includes("http://youtu.be/") || url.includes("http://www.youtu.be/")) { msg.channel.sendMessage("*Adding...*"); } else { return msg.channel.sendMessage(":no_entry_sign: The song to add you provided must be a YouTube video link!"); }
+        if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url after ${tokens.prefix}add`);
+yt.getInfo(url, (err, info) => {
+            if(err) return msg.channel.sendMessage(':no_entry_sign: Invalid YouTube link: ' + err);
+            if (!userData[msg.author.id]) userData[msg.author.id] = {
+                    songs: []
+            };
+            userData[msg.author.id].songs.push({url: url, title: info.title});
+            let updateValue = JSON.stringify(userData, null, 2);
+            fs.writeFileSync('./Toasty/spotify/spotify.json', updateValue);
+            msg.channel.sendMessage(`:white_check_mark: Added **${info.title}** to your playlist.`);
+        });
+    },
 	'songs': (msg) => {
 		if (!userData[msg.author.id] === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
 		let tosend = [];
 		userData[msg.author.id].songs.forEach((song, i) => { tosend.push(`${i+1}. ${song.title}`);});
 		msg.channel.sendMessage(`__**${msg.author.username}'s Music Playlist:**__ Currently **${tosend.length}** songs in it ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
-	},
-	'stop': (msg) => {
-		const vC = msg.member.voiceChannel;
-		if(!msg.guild.voiceConnection) {
-			msg.channel.sendMessage("I'm not currently playing on this server!");
-		} else if(!vC) {
-			msg.channel.sendMessage("You're not connected to a voice channel!");
-		} else {
-			msg.channel.sendMessage(":octagonal_sign: I've stopped playing.")
-			setTimeout(function() { vC.leave(); }, 1500);
-		}
 	},
 	'ping': (msg) => {
 		var start = now();
@@ -115,7 +101,6 @@ const commands = {
 				"**resume** = Resumes a paused song.",
 				"**volume+[+]** = Increases the volume of a song.",
 				"**volume-[-]** = Decreases the volume of a song.",
-				"**stop** = Stops playing.",
 				"**time** = Displays the play time of the song that's playing.",
 				"**add <song>** = Adds the specified song to your custom playlist. *(YouTube videos only)*",
 				"**songs** = List's all of your songs.",
