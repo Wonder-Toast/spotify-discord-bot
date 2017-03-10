@@ -19,7 +19,7 @@ const commands = {
 
 		(function play(song) {
 			if (song === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`").then(() => {
-				//queue[msg.guild.id].playing = false;
+				
 				msg.member.voiceChannel.leave();
 			});
 			msg.channel.sendMessage(`Playing: **${song.title}** from user: **${msg.author.username}**'s playlist.`);
