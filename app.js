@@ -107,7 +107,7 @@ const commands = {
 
   if (msg.content === tokens.prefix + "add") return;
   var url = msg.content.split(' ')[1];
-  if(url.includes("https://youtube.com/playlist" || url.includes("https://www.youtube.com/playlist" || url.includes("http://youtube.com/playlist" || url.includes("http://www.youtube.com/playlist") return msg.channel.sendMessage(":no_entry_sign: You can't add a Youtube playlist a song.");
+  if(url.includes("https://youtube.com/playlist" || url.includes("https://www.youtube.com/playlist" || url.includes("http://youtube.com/playlist" || url.includes("http://www.youtube.com/playlist")) return msg.channel.sendMessage(":no_entry_sign: You can't add a Youtube playlist a song.");
   if (url.includes("https://youtube.com/watch") || url.includes("https://www.youtube.com/watch") || url.includes("http://youtube.com/watch") || url.includes("http://www.youtube.com/watch") || url.includes("https://youtu.be/") || url.includes("https://www.youtu.be/") || url.includes("http://youtu.be/") || url.includes("http://www.youtu.be/")) {
    addFromUrl(url);
   } else {
