@@ -148,6 +148,7 @@ msg.channel.sendMessage(" ");
    "**skip** = Skips the currently playing song.",
    "**pause** = Pauses the currently playing song.",
    "**resume** = Resumes a paused song.",
+   "**stop** = Stops the currently playing song and leaves the voice channel.",
    "**volume+[+]** = Increases the volume of a song.",
    "**volume-[-]** = Decreases the volume of a song.",
    "**time** = Displays the play time of the song that's playing.",
