@@ -14,7 +14,7 @@ Spotify Discord - A discord bot where you can create your own playlists and play
 - plays song from playlist
 - skip
 	* To be able to remove/delete songs from playlist *coming very soon...*
-- Pause
+- pause
 - resume
 - volume increase/decrease
 - time into song
