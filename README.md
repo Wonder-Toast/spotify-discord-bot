@@ -7,7 +7,7 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 ---
 <!--"Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc. -->
 
-
+---
 ## Features
 - add songs to your playlist
 - join your vc
@@ -23,4 +23,4 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 - ping
 - connections throughout guilds bot is in
 - guild count
-
+---
