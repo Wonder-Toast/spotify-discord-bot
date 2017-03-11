@@ -23,4 +23,6 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 - ping
 - connections throughout guilds bot is in
 - guild count
+
+
 ---
