@@ -98,7 +98,7 @@ msg.channel.sendMessage(" ");
      title: info.title
     });
     let updateValue = JSON.stringify(userData, null, 2);
-    fs.writeFileSync('./spotify.json', updateValue);
+    fs.writeFileSync('./songs/spotify.json', updateValue);
     msg.channel.sendMessage(`:white_check_mark: Added **${info.title}** to your playlist.`);
    });
   }
