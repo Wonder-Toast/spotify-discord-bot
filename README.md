@@ -21,6 +21,6 @@ Spotify Discord - A discord bot where you can create your own playlists and play
 - youtube search or add youtube link per vid. for playlist
 - invite
 - ping
-- connections in the guilds
-- server count
+- connections throughout guilds bot is in
+- guild count
 
