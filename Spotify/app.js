@@ -202,7 +202,6 @@ msg.channel.sendMessage(" ");
    .addField('• Ping: ', `${(end - start).toFixed(0)} MS`, true)
    .addField('• CPU Speed: ', '2.4GHz', true)
    .addField(`• Mem. Usage: `, `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true)
-   .addField(`• OS: `, `Ubuntu 16.0.4 Server`, true)
    msg.channel.sendEmbed(embed);
    return msg.edit('```Done!```');
   }).catch(e => {
