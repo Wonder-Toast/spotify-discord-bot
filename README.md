@@ -1,5 +1,7 @@
 <p align="center">
+<a href="https://github.com/Spotify-Discord/spotify-discord-bot>
         <img src=http://indieunderground.ca/wp-content/uploads/2015/08/Spotify-new-logo-Monthly-Playlist-Indie-Underground-Aaron-McMillan-730x396.png/>
+	</a>
     
 </p>  
 
