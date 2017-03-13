@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://github.com/Spotify-Discord/spotify-discord-bot>
+<a href="https://github.com/Spotify-Discord/spotify-discord-bot">
         <img src=http://kpcbweb2.s3.amazonaws.com/companies/329/logo/original/Spotify.jpg?1364424490/>
 	</a>
     
