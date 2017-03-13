@@ -1,5 +1,5 @@
 <p align="center">
-        <img src=http://indieunderground.ca/wp-content/uploads/2015/08/Spotify-new-logo-Monthly-Playlist-Indie-Underground-Aaron-McMillan-730x396.jpg/>
+        <img src=http://indieunderground.ca/wp-content/uploads/2015/08/Spotify-new-logo-Monthly-Playlist-Indie-Underground-Aaron-McMillan-730x396.png/>
     
 </p>  
 
