@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://github.com/Spotify-Discord/spotify-discord-bot">
-        <img src=http://youredm.youredm1.netdna-cdn.com/wp-content/uploads/2016/12/spotify-green.png?x972310/>
+        <img src=http://indieunderground.ca/wp-content/uploads/2015/08/Spotify-new-logo-Monthly-Playlist-Indie-Underground-Aaron-McMillan-730x396.jpg/>
 	</a>
     
 </p>  
