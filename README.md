@@ -1,3 +1,7 @@
+<p align="center">
+        <img src=http://indieunderground.ca/wp-content/uploads/2015/08/Spotify-new-logo-Monthly-Playlist-Indie-Underground-Aaron-McMillan-730x396.jpg/>
+    
+</p>  
 
 # Spotify-Discord-Bot
 Spotify Discord - A discord.js bot where you can create your own playlists and play them in any server!
