@@ -1,9 +1,4 @@
-<p align="center">
-<a href="https://github.com/Spotify-Discord/spotify-discord-bot">
-        <img src=https://spotifyblogcom.files.wordpress.com/2014/12/yimheader.png/>
-	</a>
-    
-</p>  
+
 
 # Spotify-Discord-Bot
 Spotify Discord - A discord.js bot where you can create your own playlists and play them in any server!
