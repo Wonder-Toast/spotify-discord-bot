@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://github.com/Spotify-Discord/spotify-discord-bot">
-        <img src=http://kpcbweb2.s3.amazonaws.com/companies/329/logo/original/Spotify.jpg?1364424490/>
+        <img src=http://youredm.youredm1.netdna-cdn.com/wp-content/uploads/2016/12/spotify-green.png?x972310/>
 	</a>
     
 </p>  
