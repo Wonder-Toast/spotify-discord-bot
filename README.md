@@ -14,7 +14,7 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 - join your vc
 - plays song from playlist
 - skip
- * To be able to remove/delete songs from playlist *coming very soon...*
+   * To be able to remove/delete songs from playlist *coming very soon...*
 - pause
 - resume
 - volume increase/decrease
