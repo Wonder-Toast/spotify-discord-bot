@@ -138,6 +138,13 @@ msg.channel.sendMessage(" ");
    var end = now();msg.edit(`Pong! **${(end - start).toFixed(0)}ms**`);
   });
  },
+ 'avatar': (msg) => {
+msg.reply("", {embed: {
+    color: 0x1C226B,
+    title: msg.author.avatarURL,
+   
+  }}); 
+ },
  'help': (msg) => {
   msg.reply("I've sent a list of commands to you. Check your DM's.");
   var help = [
