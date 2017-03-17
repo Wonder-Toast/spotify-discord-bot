@@ -1,5 +1,5 @@
 
-![Banner](http://youredm.youredm1.netdna-cdn.com/wp-content/uploads/2016/12/spotify-green.png?x56677)
+![Banner](https://d235mwrq2dn9n5.cloudfront.net/wp-content/uploads/2016/05/02111544/spotify-260516.jpg)
 # Spotify-Discord-Bot 🎵
 Spotify Discord - A discord.js bot where you can create your own playlists and play them in any server!
 ### Invite me [here](https://discordapp.com/oauth2/authorize?client_id=224495611741863936&scope=bot&permissions=37088320)
