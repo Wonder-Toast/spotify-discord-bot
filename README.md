@@ -33,5 +33,5 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
  [![](https://discordapp.com/api/guilds/271071483349041154/embed.png?style=banner2)](https://discord.gg/TCkRRTb)
  
  
- <!--"Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc. -->
+ "Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc.
 
