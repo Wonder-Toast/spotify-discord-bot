@@ -30,7 +30,7 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 
 
  <!--<a href="https://discord.gg/TCkRRTb"><img src="https://discordapp.com/api/guilds/271071483349041154/widget.png?style=banner2" alt="Discord server"></a> -->
- [![](https://discordapp.com/api/guilds/271071483349041154/embed.png?style=banner1)](https://discord.gg/TCkRRTb)
+ [![](https://discordapp.com/api/guilds/271071483349041154/embed.png?style=banner2)](https://discord.gg/TCkRRTb)
  
  
  <!--"Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc. -->
