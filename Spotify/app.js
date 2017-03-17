@@ -165,7 +165,10 @@ msg.channel.sendMessage(" ");
   msg.channel.sendMessage(`Currently playing music in **${client.voiceConnections.size}** voice channels!`);
  },
  'servers': (msg) => {
-  msg.channel.sendMessage(`On **${client.guilds.size}** servers!`);
+	 msg.channel.sendMessage("", {embed: {
+    color: 0x39EA81,
+    title: `On **${client.guilds.size}** servers!`,
+  }});
  },
  'invite': (msg) => {
   msg.channel.sendMessage(`Feel free to invite me using this: ${oauth}`)
