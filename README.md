@@ -27,11 +27,6 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 
 
 ---
-## Installation
-
-1. Run ```js
-node app.js
-```
 
  <!--<a href="https://discord.gg/TCkRRTb"><img src="https://discordapp.com/api/guilds/271071483349041154/widget.png?style=banner2" alt="Discord server"></a> -->
  [![](https://discordapp.com/api/guilds/271071483349041154/embed.png?style=banner2)](https://discord.gg/TCkRRTb)
