@@ -8,7 +8,7 @@ const youTube = new YouTube();
 youTube.setKey(tokens.yt_token);
 const client = new Discord.Client({fetchAllMembers: true})
 const userData = JSON.parse(fs.readFileSync('./songs/spotify.json'));
-const oauth = 'https://discordapp.com/oauth2/authorize?client_id=224495611741863936&scope=bot&permissions=37088320';
+const oauth = 'YOUR_DISCORD_BOT_OUATH_LINK';
 
 let queue = {};
 
