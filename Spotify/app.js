@@ -17,7 +17,7 @@ const commands = {
   	if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
   	if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 
-  let dispatcher;
+	  let dispatcher;
 
 
   (function play(song) {
