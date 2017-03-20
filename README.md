@@ -9,6 +9,15 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 ---
 <!--"Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc. -->
 
+## Features
+| Option        | Usage         |
+| ------------- |---------------|
+| add           | add songs to your playlist |
+| join          | join your vc               |
+| skip          | Skips the song             |
+| pause        | The number of colors that'll be used      |
+| resume         | The speed on which it needs to change (in ms)      |
+| volume increase/decrease       | If you want to log when the color has changed in the console (can be really messy)      |
 
 ## Features
 - add songs to your playlist
