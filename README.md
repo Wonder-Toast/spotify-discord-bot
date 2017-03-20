@@ -25,21 +25,7 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 | connections      | connections throughout guilds bot is in   |
 | servers      | guild count   |
 
-## Features
-- add songs to your playlist
-- join your vc
-- plays song from playlist
-- skip
-   * To be able to remove/delete songs from playlist *coming very soon...*
-- pause
-- resume
-- volume increase/decrease
-- time into song
-- youtube search or add youtube link per vid. for playlist
-- invite
-- ping
-- connections throughout guilds bot is in
-- guild count
+
 
 
 ---
