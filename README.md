@@ -1,3 +1,4 @@
+![Language](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=social)
 
 <!-- ![Banner](https://d235mwrq2dn9n5.cloudfront.net/wp-content/uploads/2016/05/02111544/spotify-260516.jpg) -->
 # Spotify-Discord-Bot 🎵
