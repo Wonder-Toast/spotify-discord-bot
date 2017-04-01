@@ -10,6 +10,7 @@ const client = new Discord.Client({fetchAllMembers: true})
 const userData = JSON.parse(fs.readFileSync('./songs/spotify.json'));
 const oauth = 'YOUR_DISCORD_BOT_OUATH_LINK';
 let name = 'YOUR_BOT_NAME_FILL_HERE';
+
 let queue = {};
 
 const commands = {
