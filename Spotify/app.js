@@ -12,7 +12,6 @@ const oauth = 'YOUR_DISCORD_BOT_OUATH_LINK';
 let name = 'YOUR_BOT_NAME_FILL_HERE';
 
 let queue = {};
-
 const commands = {
  'play': (msg) => {
   	if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
