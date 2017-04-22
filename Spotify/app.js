@@ -183,7 +183,7 @@ msg.reply("", {embed: {
   if (!msg.author.id === '138431969418543104') return;
   msg.channel.sendMessage("```css\nRestarting...```");
   console.log("Restarting...");
-  setTimeout(function() {
+  setTimeout(() => {
    console.log(process.exit(0));
   }, 400);
  },
