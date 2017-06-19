@@ -2,26 +2,23 @@ const Discord = require('discord.js');
 const yt = require('ytdl-core');
 const fs = require('fs');
 const now = require('performance-now');
-const tokens = require('./tokens.json');
+const { d_token, yt_token, name, oauth, prefix, passes } = require('./config.json');
 const YouTube = require('youtube-node');
 const youTube = new YouTube();
-youTube.setKey(tokens.yt_token);
+youTube.setKey(yt_token);
 const client = new Discord.Client({fetchAllMembers: true})
 const userData = JSON.parse(fs.readFileSync('./songs/spotify.json'));
-const oauth = 'YOUR_DISCORD_BOT_OUATH_LINK';
-let name = 'YOUR_BOT_NAME_FILL_HERE';
-//make sure to fill this out, and ignore it ^
 
 let queue = {};
 const commands = {
  'play': (msg) => {
-if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
+if (userData[msg.author.id] === undefined) return msg.reply("You don't have any songs in your playlist! Add some with `" + prefix + "add`");
 if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.play(msg));
 
    let dispatcher;
 	 
   (function play(song) {
-   if (song === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`").then(() => {
+   if (song === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + prefix + "add`").then(() => {
     msg.member.voiceChannel.leave();
    });
    msg.channel.sendMessage(`Playing: **${song.title}** from user: **${msg.author.username}**'s playlist.`);
@@ -30,7 +27,7 @@ if (!msg.guild.voiceConnection) return commands.join(msg).then(() => commands.pl
    }) /*, { passes : tokens.passes }*/ );
    let collector = msg.channel.createCollector(m => m);
    collector.on('message', m => {
-if (!m.content.startsWith(`${tokens.prefix}`)) {
+if (!m.content.startsWith(prefix)) {
   msg.channel.sendMessage(" ");
 	   }
  if (m.author.bot) {
@@ -39,27 +36,27 @@ msg.channel.sendMessage(" ");
 if(m.author === client.user) {
 msg.channel.sendMessage(" ");
 	}
-    if (m.content.startsWith(tokens.prefix + 'pause')) {
+    if (m.content.startsWith(prefix + 'pause')) {
      msg.channel.sendMessage(':pause_button: Paused.').then(() => {
       dispatcher.pause();
      });
-    } else if (m.content.startsWith(tokens.prefix + 'resume')) {
+    } else if (m.content.startsWith(prefix + 'resume')) {
      msg.channel.sendMessage(':play_pause: Resumed.').then(() => {
       dispatcher.resume();
      });
-    } else if (m.content.startsWith(tokens.prefix + 'skip')) {
+    } else if (m.content.startsWith(prefix + 'skip')) {
      msg.channel.sendMessage(':arrow_forward: Skipped.').then(() => {
       dispatcher.end();
      });
-    } else if (m.content.startsWith(tokens.prefix + 'volume+')) {
+    } else if (m.content.startsWith(prefix + 'volume+')) {
      if (Math.round(dispatcher.volume * 50) >= 100) return msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
      dispatcher.setVolume(Math.min((dispatcher.volume * 50 + (2 * (m.content.split('+').length - 1))) / 50, 2));
      msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
-    } else if (m.content.startsWith(tokens.prefix + 'volume-')) {
+    } else if (m.content.startsWith(prefix + 'volume-')) {
      if (Math.round(dispatcher.volume * 50) <= 0) return msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
      dispatcher.setVolume(Math.max((dispatcher.volume * 50 - (2 * (m.content.split('-').length - 1))) / 50, 0));
      msg.channel.sendMessage(`:speaker: Volume: ${Math.round(dispatcher.volume*50)}%`);
-    } else if (m.content.startsWith(tokens.prefix + 'time')) {
+    } else if (m.content.startsWith(prefix + 'time')) {
      msg.channel.sendMessage(`:clock1: Time: ${Math.floor(dispatcher.time / 60000)}:${Math.floor((dispatcher.time % 60000)/1000) <10 ? '0'+Math.floor((dispatcher.time % 60000)/1000) : Math.floor((dispatcher.time % 60000)/1000)}`);
     }
    });
@@ -86,7 +83,7 @@ msg.channel.sendMessage(" ");
  'add': (msg) => {
   function addFromUrl(url) {
    msg.channel.sendMessage("*Adding...*");
-   if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url after ${tokens.prefix}add`);
+   if (url == '' || url === undefined) return msg.channel.sendMessage(`You must add a YouTube video url after ${prefix}add`);
    yt.getInfo(url, (err, info) => {
     if (err) return msg.channel.sendMessage(':no_entry_sign: Invalid YouTube Link: ' + err);
     if (!userData[msg.author.id]) userData[msg.author.id] = {
@@ -103,28 +100,25 @@ msg.channel.sendMessage(" ");
   }
 
   function addFromQuery(query) {
-   youTube.search(query, 2, function(error, result) {
-    if (error) {
-     msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${error}`);
-    } else {
-     var url = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`;
+   youTube.search(query, 2, (err, result) => {
+    if (err) return msg.channel.sendMessage(`:no_entry_sign: **Error:**\n${error}`);
+     let url = `https://www.youtube.com/watch?v=${result.items[0]["id"].videoId}`;
      addFromUrl(url);
-    }
    });
   }
 
-  if (msg.content === tokens.prefix + "add") return;
-  var url = msg.content.split(' ')[1];
+  if (msg.content === prefix + "add") return;
+  let url = msg.content.split(' ')[1];
   if(url.includes("https://youtube.com/playlist") || url.includes("https://www.youtube.com/playlist") || url.includes("http://youtube.com/playlist") || url.includes("http://www.youtube.com/playlist")) return msg.channel.sendMessage(":no_entry_sign: You can't add a Youtube playlist a song.");
   if (url.includes("https://youtube.com/watch") || url.includes("https://www.youtube.com/watch") || url.includes("http://youtube.com/watch") || url.includes("http://www.youtube.com/watch") || url.includes("https://youtu.be/") || url.includes("https://www.youtu.be/") || url.includes("http://youtu.be/") || url.includes("http://www.youtu.be/")) {
    addFromUrl(url);
   } else {
-   var query = msg.content.replace(tokens.prefix + 'add', '');
+   let query = msg.content.replace(prefix + 'add', '');
    addFromQuery(query);
   }
  },
  'songs': (msg) => {
-  if (!userData[msg.author.id] === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + tokens.prefix + "add`");
+  if (!userData[msg.author.id] === undefined) return msg.channel.sendMessage("You don't have any songs in your playlist! Add some with `" + prefix + "add`");
   let tosend = [];
   userData[msg.author.id].songs.forEach((song, i) => {
    tosend.push(`${i+1}. ${song.title}`);
@@ -132,9 +126,9 @@ msg.channel.sendMessage(" ");
   msg.channel.sendMessage(`__**${msg.author.username}'s Music Playlist:**__ Currently **${tosend.length}** songs in it ${(tosend.length > 15 ? '*[Only next 15 shown]*' : '')}\n\`\`\`${tosend.slice(0,15).join('\n')}\`\`\``);
  },
  'ping': (msg) => {
-  var start = now();
+  let start = now();
   msg.channel.sendMessage("*Pinging...*").then(msg => {
-   var end = now();msg.edit(`Pong! **${(end - start).toFixed(0)}ms**`);
+   let end = now();msg.edit(`Pong! **${(end - start).toFixed(0)}ms**`);
   });
  },
  'avatar': (msg) => {
@@ -146,7 +140,7 @@ msg.reply("", {embed: {
  },
  'help': (msg) => {
   msg.reply("I've sent a list of commands to you. Check your DM's.");
-  var help = [
+  let help = [
    "Prefix is `s.`",
    "**help** = Sends this message.",
    "**join** = Joins the voice channel you're connected to.",
@@ -189,19 +183,19 @@ msg.reply("", {embed: {
   }, 400);
  },
  'stats': (msg) => {
-  var start = now();
+  let start = now();
   let embed = new Discord.RichEmbed();
   msg.channel.sendMessage("```+ Fetching...```")
   .then(msg => {
-   var end = now();
-   var milliseconds = parseInt((client.uptime % 1000) / 100),
+   let end = now();
+   let milliseconds = parseInt((client.uptime % 1000) / 100),
     seconds = parseInt((client.uptime / 1000) % 60),
     minutes = parseInt((client.uptime / (1000 * 60)) % 60),
     hours = parseInt((client.uptime / (1000 * 60 * 60)) % 24);
    hours = (hours < 10) ? "0" + hours : hours;
    minutes = (minutes < 10) ? "0" + minutes : minutes;
    seconds = (seconds < 10) ? "0" + seconds : seconds;
-   var uptime = "" + hours + " hours, " + minutes + " minutes and " + seconds + "." + milliseconds + " seconds";
+   let uptime = "" + hours + " hours, " + minutes + " minutes and " + seconds + "." + milliseconds + " seconds";
    embed.setColor(0x00FFE1)
    .setAuthor(client.user.username, client.user.avatarURL)
    .setTitle("Spotify Stats:")
@@ -226,7 +220,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
- if (!msg.content.startsWith(tokens.prefix)) return;
- if (commands.hasOwnProperty(msg.content.toLowerCase().slice(tokens.prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(tokens.prefix.length).split(' ')[0]](msg);
+ if (!msg.content.startsWith(prefix)) return;
+ if (commands.hasOwnProperty(msg.content.toLowerCase().slice(prefix.length).split(' ')[0])) commands[msg.content.toLowerCase().slice(prefix.length).split(' ')[0]](msg);
 });
-client.login(tokens.d_token);
+client.login(d_token);
