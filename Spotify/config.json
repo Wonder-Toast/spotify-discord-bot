@@ -1,0 +1,8 @@
+{  
+  "d_token": "BOT_TOKEN_GOES_HERE",
+  "prefix": "BOT_PREFIX_GOES_HERE",
+  "name": "BOT_NAME_GOES_HERE",
+  "oauth": "BOT_OAUTH_GOES_HERE",
+  "passes": 1,
+  "yt_token": "YOUTUBE_SEARCH_TOKEN_GOES_HERE"
+}
