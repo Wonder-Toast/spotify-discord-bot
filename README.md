@@ -4,7 +4,8 @@
 # Spotify-Discord-Bot 🎵
 Spotify Discord - A discord.js bot where you can create your own playlists and play them in any server!
 
-
+# How to install
+Please go [here](https://github.com/Spotify-Discord/spotify-discord-bot/wiki/Spotify-Bot-Installation-Tutorial)
 
 ---
 <!--"Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc. -->
