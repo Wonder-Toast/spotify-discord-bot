@@ -1,0 +1,22 @@
+{
+  "name": "spotify",
+  "version": "1.0.0",
+  "description": "A Discord Bot to save and play user's playlist into other guilds",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Spotify-Discord"
+  },
+  "author": "Wonder & Toast",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.1.0",
+    "fs": "0.0.1-security",
+    "performance-now": "^2.1.0",
+    "youtube-node": "^1.3.0",
+    "ytdl-core": "^0.14.4"
+  }
+}
