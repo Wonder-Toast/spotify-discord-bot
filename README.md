@@ -27,7 +27,6 @@ Please go [here](https://github.com/Spotify-Discord/spotify-discord-bot/wiki/Spo
 | servers      | guild count   |
 
 
-**For installation + hosting, head over <a href="https://github.com/Spotify-Discord/spotify-discord-bot/wiki/Spotify-Bot-Installation-Tutorial">Here</a> to see**
 
 ---
 
