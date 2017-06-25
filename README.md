@@ -26,7 +26,7 @@ Spotify Discord - A discord.js bot where you can create your own playlists and p
 | servers      | guild count   |
 
 
-
+**For installation + hosting, head over <a href="https://github.com/Spotify-Discord/spotify-discord-bot/wiki/Spotify-Bot-Installation-Tutorial">Here</a> to see**
 
 ---
 
