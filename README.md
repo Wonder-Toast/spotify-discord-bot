@@ -31,7 +31,7 @@ Please go [here](https://github.com/Spotify-Discord/spotify-discord-bot/wiki/Spo
 ---
 
  <!--<a href="https://discord.gg/TsaGrwg"><img src="https://discordapp.com/api/guilds/304768817526210562/widget.png?style=banner2" alt="Discord server"></a> -->
- [![](https://discordapp.com/api/guilds/304768817526210562/embed.png?style=banner2)](https://discord.gg/TsaGrwg)
+ [![](https://discordapp.com/api/guilds/271071483349041154/embed.png?style=banner2)](https://discord.gg/GFccPdh)
  
  ---
  "Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc.
